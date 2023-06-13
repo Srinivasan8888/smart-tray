@@ -132,61 +132,33 @@ overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 
 </head>
 <body>
-    <!--Main Navigation-->
-    <header>
-      <!-- Sidebar -->
-      <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-dark text-white">
-        <center>
-          <img src="./img/xyma-bg-white.png" class="my-3" width="60%"></img>
-          <hr>
-        </center>
-        <div class="position-sticky">
-          <div class="list-group list-group-flush mx-3 mt-4 ">
-            <a href="newdashboard.php" class="list-group-item list-group-item-action py-3 px-3 bg-dark text-white ripple zoom">
-              <i class="fas fa-tachometer-alt fa-fw me-3" style="width=20%"></i>
-              <span>Dashboard</span>
-            </a>
-            <a href="reports.php" class="list-group-item list-group-item-action py-3 px-3 bg-dark text-white zoom">
-              <i class="fas fa-chart-line fa-fw me-3"></i>
-              <span>report</span>
-            </a>
-            <a href="graph.php" class="list-group-item list-group-item-action py-3 px-3 bg-dark text-white zoom">
-              <i class="fas fa-chart-pie fa-fw me-3"></i>
-              <span>graph</span>
-            </a>
-            <a href="settings.php" class="list-group-item list-group-item-action py-3 px-3 bg-dark text-white zoom">
-              <i class="fas fa-cog fa-fw me-3"></i>
-              <span>Settings</span>
-            </a>
-          </div>
-        </div>
-        <hr>
-        <center>
-          <p class="mt-5">©️ All Rights Reserved By</p>
-        </center>
-        <center>
-          <img src="./img/xyma-bg-white.png" width="50%"></img>
-        </center>
-        <center>
-          <p class="mt-4">Powered by Xyma Analytics Inc</p>
-        </center>
-      </nav>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </header>
-
+<?php 
+    include_once './layout/sidebar.php'
+  ?>
 <!--Main layout-->
 <main style="">
-  <div class="container-fluid pt-2">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Reports</a>
-                            <div class="d-flex ms-auto">
-                            <?php echo $_SESSION['email'] ;?> 
+<div class="">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position:relative; bottom:40px;">
+          <div class="container-fluid">
+            <a class="navbar-brand font-weight-bold">Reports</a>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+              <div class="d-flex align-items-center">
+                              <i class="fa-solid fa-circle-user mr-2" ></i>
+                              <span><?php echo $_SESSION['email']; ?> <i class="fa-solid fa-circle-chevron-down"></i></span>
+                             </i>
                             </div>
-                    </div>
-            </nav>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="settings.php">Profile <i class="fa-solid fa-user"></i></a>
+                <a class="dropdown-item" href="logout.php">logout <i class="fa-solid fa-right-from-bracket"></i></a>
+              </div>
+            </div>
+          </div>
+        </nav>
+  <div class="container-fluid pt-2">
+  
                         <div class="col-md-12 mt-5">
                                 <div class="col-xl-12 col-sm-12 col-12 mt-5"><!----first half col 1-->                               
                                         <div class="card" style=""><!-- wave guide 1 card-->
@@ -202,7 +174,7 @@ overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
                                                     </div>
                                                     <div class="row mt-3">
                                                         <div class="col-md-4">
-                                                            <div class="card" style=""><!-- wave guide 1 card-->
+                                                            <div class="card tr" style=""><!-- wave guide 1 card-->
                                                                 <div class="card-content"><!-- wg1 card content--->
                                                                     <div class="card-body mt-4">
                                                                         <center><a href="csv.php" class="text-dark" style=""><i class="fa-solid fa-file-csv" style="font-size:40px"></i></a><br><br></center>
@@ -250,7 +222,7 @@ overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
                                                     </div>
                                                     <div class="row mt-3">
                                                         <div class="col-md-4">
-                                                            <div class="card" style=""><!-- wave guide 1 card-->
+                                                            <div class="card tr" style=""><!-- wave guide 1 card-->
                                                                 <div class="card-content"><!-- wg1 card content--->
                                                                     <div class="card-body mt-4">
                                                                     <center><a href="" class="text-dark" style=""><i class="fa-solid fa-file-csv" style="font-size:40px"></i></a><br><br></center>
@@ -285,7 +257,7 @@ overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
                                         </div>
                                 </div>     
                                 <div class="col-xl-12 col-sm-12 col-12 mt-3"><!----first half col 1-->                               
-                                        <div class="card" style=""><!-- wave guide 1 card-->
+                                        <div class="card " style=""><!-- wave guide 1 card-->
                                         <div class="card-content"><!-- wg1 card content--->
                                             <div class="card-body"><!--- wg1 card body--->
                                                     <div class="media d-flex">
@@ -298,7 +270,7 @@ overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
                                                     </div>
                                                     <div class="row mt-3">
                                                         <div class="col-md-4">
-                                                            <div class="card" style=""><!-- wave guide 1 card-->
+                                                            <div class="card tr" style=""><!-- wave guide 1 card-->
                                                                 <div class="card-content"><!-- wg1 card content--->
                                                                     <div class="card-body mt-4">
                                                                     <center><a href="" class="text-dark" style=""><i class="fa-solid fa-file-csv" style="font-size:40px"></i></a><br><br></center>
@@ -334,9 +306,7 @@ overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
                                 </div>     
                         </div>
             </div> 
-            <a href="logout.php" class="float">
-        <img src="./img/logout.png" style="color:#ffff" class="img-fluid" alt="logout">
-      </a>
+            </div>    
   </div>   
 </main>
         <script src="./lity/lity/dist/lity.js"></script>

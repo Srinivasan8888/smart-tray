@@ -64,7 +64,7 @@ require "conn.php";
   <form action="" method="post">
     <input type="email" name="email" class="no-outline email" id="exampleFormControlInput1 email" placeholder="Email" size="30"><br><br>
     <input type="password" name="password" class="no-outline password" id="exampleFormControlInput1 password" placeholder="Password" size="30"><br><br><br>
-    <center><input type="submit" name="login" class="btn btn-dark"></center>
+    <center><button type="submit" name="login" class="btn btn-dark">Login</button></center>
   </form>
 </div><br><br>
 <center> 

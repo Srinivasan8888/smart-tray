@@ -104,25 +104,6 @@ $sql = "INSERT INTO loginact (mac_address) VALUES ('$mac_address')";
         border-top: 1px solid black;
       }
 
-      .float {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 40px;
-        right: 40px;
-        background-color: #0C9;
-        color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        box-shadow: 2px 2px 3px #999;
-      }
-
-      .my-float {
-        margin-top: 22px;
-      }
-
-     
-
         /* CSS that should be displayed if width is equal to or less than 800px goes here */
       
 
@@ -130,7 +111,7 @@ $sql = "INSERT INTO loginact (mac_address) VALUES ('$mac_address')";
         flex: 2;
         background-color: var(--projects-section);
         border-radius: 32px;
-        padding: 32px 32px 0 32px;
+        padding: 0px 32px 0 32px;
         overflow: hidden;
         height: 16%;
         display: flex;
@@ -235,7 +216,6 @@ $sql = "INSERT INTO loginact (mac_address) VALUES ('$mac_address')";
 
       h3 {
         font-size: 1.5rem;
-        font-weight: bold;
         margin-bottom: 0.5rem;
       }
 
@@ -243,9 +223,7 @@ $sql = "INSERT INTO loginact (mac_address) VALUES ('$mac_address')";
         font-size: 1.2rem;
       }
 
-      i {
-        font-size: 2rem;
-      }
+      
 
       @media only screen and (min-width: 768px) and (max-width: 1024px) {
         #chart {
@@ -268,6 +246,7 @@ $sql = "INSERT INTO loginact (mac_address) VALUES ('$mac_address')";
       }
 
       
+      
     </style>
     <script src="https://cdn.jsdelivr.net/npm/alertifyjs/build/alertify.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -279,77 +258,48 @@ $sql = "INSERT INTO loginact (mac_address) VALUES ('$mac_address')";
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body?>
-    <header>
-      <!-- Sidebar -->
-      <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-dark text-white">
-        <center>
-          <img src="./img/xyma-bg-white.png" class="my-3" width="60%"></img>
-          <hr>
-        </center>
-        <div class="position-sticky">
-          <div class="list-group list-group-flush mx-3 mt-4 ">
-            <a href="newdashboard.php" class="list-group-item list-group-item-action py-3 px-3 bg-dark text-white ripple zoom">
-              <i class="fas fa-tachometer-alt fa-fw me-3" style="width=20%"></i>
-              <span>Dashboard</span>
-            </a>
-            <a href="reports.php" class="list-group-item list-group-item-action py-3 px-3 bg-dark text-white zoom">
-              <i class="fas fa-chart-line fa-fw me-3"></i>
-              <span>report</span>
-            </a>
-            <a href="graph.php" class="list-group-item list-group-item-action py-3 px-3 bg-dark text-white zoom">
-              <i class="fas fa-chart-pie fa-fw me-3"></i>
-              <span>graph</span>
-            </a>
-            <a href="settings.php" class="list-group-item list-group-item-action py-3 px-3 bg-dark text-white zoom">
-              <i class="fas fa-cog fa-fw me-3"></i>
-              <span>Settings</span>
-            </a>
-          </div>
-        </div>
-        <hr>
-        <center>
-          <p class="mt-5">©️ All Rights Reserved By</p>
-        </center>
-        <center>
-          <img src="./img/xyma-bg-white.png" width="50%"></img>
-        </center>
-        <center>
-          <p class="mt-4">Powered by Xyma Analytics Inc</p>
-        </center>
-      </nav>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </header>
+  <?php 
+    include_once './layout/sidebar.php'
+  ?>
 
 
     <main style="">
-      <div class="pt-2">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position:relative; bottom:40px;">
           <div class="container-fluid">
-            <a class="navbar-brand font-bold">Dashboard</a>
-            <div class="d-flex ms-auto" style="position:relative; right:20px;"> <?php echo $_SESSION['email'] ;?> </div>
+            <a class="navbar-brand font-weight-bold">Dashboard</a>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+              <div class="d-flex align-items-center">
+                              <i class="fa-solid fa-circle-user mr-2" ></i>
+                              <span><?php echo $_SESSION['email']; ?> <i class="fa-solid fa-circle-chevron-down"></i></span>
+                             </i>
+                            </div>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="settings.php">Profile <i class="fa-solid fa-user"></i></a>
+                <a class="dropdown-item" href="logout.php">logout <i class="fa-solid fa-right-from-bracket"></i></a>
+              </div>
+            </div>
           </div>
         </nav>
-        <br>
+        
         <div class="container-fluid">
           <div class="projects-section">
-            <div class="projects-section-header">
-              <p class="font-weight-bold">Sensors</p>
-            </div>
             <div class="projects-section-line">
               <div class="projects-status">
                 <div class="item-status">
-                  <span class="status-number text-success blink_me font-weight-bold">1</span>
-                  <span class="status-type font-weight-bold">Online Sensors</span>
+                  <span class="status-number text-success blink_me" id="onlineCount"></span>
+                  <span class="status-type ">Online Sensors</span>
                 </div>
                 <div class="item-status">
-                  <span class="status-number text-danger blink_me font-weight-bold">2</span>
-                  <span class="status-type font-weight-bold">Offline Sensors</span>
+                  <span class="status-number text-danger blink_me" id="offlineCount"></span>
+                  <span class="status-type ">Offline Sensors</span>
                 </div>
                 <div class="item-status">
-                  <span class="status-number text-primary blink_me font-weight-bold">3</span>
-                  <span class="status-type font-weight-bold">Total Sensors</span>
+                  <span class="status-number text-primary blink_me" id="totalSensors">3</span>
+                  <span class="status-type ">Total Sensors</span>
                 </div>
               </div>
             </div>
@@ -493,9 +443,7 @@ $sql = "INSERT INTO loginact (mac_address) VALUES ('$mac_address')";
           </div>
         </div>
       </div>
-      <a href="logout.php" class="float">
-        <img src="./img/logout.png" style="color:#ffff" class="img-fluid" alt="logout">
-      </a>
+     
     </main>
     <script>
       function logout(pagea) {
@@ -653,26 +601,82 @@ $sql = "INSERT INTO loginact (mac_address) VALUES ('$mac_address')";
       updateChart();
       setInterval(updateChart, 1000);
 
-      function updateValue() {
-        const url = "http://157.245.96.157/smart-tray/sensorfix.php";
-        fetch(url).then(response => response.json()).then(data => {
-          const value = data['sensor1'];
-          const value1 = data['sensor2'];
-          const value2 = data['sensor3'];
-          const value3 = data['sample'];
-          const value4 = data['sample1'];
-          const value5 = data['sample2'];
-          // Update the value inside the h3 tag
-          document.getElementById("s1").innerHTML = value + " mL";
-          document.getElementById("s2").innerHTML = value1 + " mL";
-          document.getElementById("s3").innerHTML = value2 + " mL"; // add this line
-          document.getElementById("sample").innerHTML = value3;
-          document.getElementById("sample1").innerHTML = value4;
-          document.getElementById("sample2").innerHTML = value5;
-        }).catch(error => console.error(error));
-      }
-      updateValue(); // call immediately
-      setInterval(updateValue, 1000);
+      let activeSensors = 0;
+let inactiveSensors = 0;
+const totalSensors = 3;
+
+// Function to update the sensor status
+function updateSensorStatus() {
+  activeSensors = 0;
+  inactiveSensors = 0;
+
+  const s1Value = document.getElementById("s1").innerHTML;
+  const s2Value = document.getElementById("s2").innerHTML;
+  const s3Value = document.getElementById("s3").innerHTML;
+
+  // Check if the sensor is active or not
+  if (s1Value !== "" && s1Value !== "undefined mL") {
+    activeSensors++;
+  } else {
+    inactiveSensors++;
+  }
+
+  if (s2Value !== "" && s2Value !== "undefined mL") {
+    activeSensors++;
+  } else {
+    inactiveSensors++;
+  }
+
+  if (s3Value !== "" && s3Value !== "undefined mL") {
+    activeSensors++;
+  } else {
+    inactiveSensors++;
+  }
+
+  document.getElementById("onlineCount").textContent = activeSensors;
+  document.getElementById("offlineCount").textContent = inactiveSensors;
+  document.getElementById("totalSensors").textContent = totalSensors;
+}
+
+function updateValue() {
+  const url = "http://157.245.96.157/smart-tray/sensorfix.php";
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const value = data['sensor1'];
+      const value1 = data['sensor2'];
+      const value2 = data['sensor3'];
+      const value3 = data['sample'];
+      const value4 = data['sample1'];
+      const value5 = data['sample2'];
+
+      // Update the value inside the h3 tag
+      document.getElementById("s1").innerHTML = value + " mL";
+      document.getElementById("s2").innerHTML = value1 + " mL";
+      document.getElementById("s3").innerHTML = value2 + " mL";
+      document.getElementById("sample").innerHTML = value3;
+      document.getElementById("sample1").innerHTML = value4;
+      document.getElementById("sample2").innerHTML = value5;
+
+      // Update sensor status
+      updateSensorStatus();
+    })
+    .catch(error => console.error(error));
+}
+
+// Example usage
+updateValue();
+
+
+
+
+
+// After 5 seconds, data doesn't change, so count should decrease and count2 should increase
+
+function simulateDataChange() {
+  handleDataChange();
+}
+
     </script>
     </body>
 </html>
